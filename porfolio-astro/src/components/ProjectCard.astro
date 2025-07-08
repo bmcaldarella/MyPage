@@ -1,0 +1,72 @@
+---
+const {
+  title,
+  description,
+  imgDefault,
+  githubLink,
+  liveLink,
+  technologies = [],
+  icon
+} = Astro.props;
+---
+
+<div class="col-12 col-sm-10 col-md-6 col-lg-6 p-4 d-flex">
+  <div class="card w-100 d-flex flex-column h-100">
+    <!-- Imagen -->
+    <div class="project-image-wrapper position-relative mb-3 d-flex justify-content-center">
+      <img class="img-pr" src={imgDefault} alt={title} />
+    </div>
+
+    <!-- Contenido -->
+    <div class="card-body flex-grow-1">
+      <h5 class="card-title fw-bold d-flex align-items-center gap-2">
+        <span>{icon}</span>
+        {title}
+      </h5>
+      <p class="card-text text-light">{description}</p>
+      <div class="d-flex flex-wrap gap-2 mb-2">
+        {technologies.map((tech, i) => (
+          <span key={i} class="tech-badge">{tech}</span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Botones -->
+    <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between mt-auto">
+      <a href={githubLink} target="_blank" class="btn btn-outline-light btn-sm">GitHub</a>
+      <a href={liveLink} target="_blank" class="btn btn-outline-info btn-sm">Live Demo</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .img-pr {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+  .card {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.07));
+    color: aliceblue;
+    padding: 9px;
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  .tech-badge {
+    background-color: transparent;
+    color: white;
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    margin: 2px;
+    border-radius: 0.2rem;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+</style>

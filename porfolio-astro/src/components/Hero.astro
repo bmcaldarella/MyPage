@@ -1,0 +1,200 @@
+---
+
+---
+<section id="home" class="hero-section d-flex justify-content-center align-items-center text-center">
+    <div class="container">
+    <div class="text">
+      <p class="intro">Hi There <span class="wave">👋🏻</span> I’m</p>
+      <h1><span class="gradient-text">Brandon</span></h1>
+      <h1><span class="gradient-text">Caldarella</span></h1>
+<h2 class="subtitle">
+  <span id="typewriter"></span><span class="cursor">|</span>
+</h2>
+    </div>
+    <div class="photo">
+      <img src="/src/assets/brandon.webp" alt="Brandon smiling with arms crossed" />
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.hero {
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  animation: fadeSlideUp 1.2s ease-out forwards;
+  animation-delay: 0.5s;
+  max-width: 1200px;
+  width: 100%;
+
+  
+}
+  .photo img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 1rem;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+
+  .intro {
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    color: #d1d1d1;
+    margin-bottom: 0.5rem;
+  }
+
+  .wave {
+    display: inline-block;
+    animation: wave 2s infinite;
+    transform-origin: 70% 70%;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #00b4ff, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    margin-top: 1.2rem;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    color: #bfbfbf;
+    font-weight: 500;
+  }
+
+  @keyframes fadeSlideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row; 
+    text-align: left;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  
+  
+
+  .text {
+    flex: 1;
+  }
+
+  .photo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 767px) {
+
+
+  .photo {
+    order: -1;
+  }
+  .photo img {
+    max-width: 280px;
+    margin-bottom: 1rem;
+  }
+
+  .hero {
+    padding-top: 1.5rem; 
+    padding-bottom: 1rem;
+  }
+
+  .container {
+    margin-top: 1.5rem; /* ajuste fino */
+  }
+}
+
+
+
+  .cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+  color: #bfbfbf;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+</style>
+<script is:inline>
+const phrases = [
+  "Full Stack Developer",
+  "Dedicated Coder",
+  "Motivated Problem Solver",
+  "Hardworking & Focused",
+  "Frontend & Backend Ready",
+  "Always Learning",
+  "Code with Purpose",
+  "Detail-Oriented Developer",
+  "Passionate About Tech"
+];
+  const el = document.getElementById("typewriter");
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+    const currentText = currentPhrase.substring(0, charIndex);
+
+    el.textContent = currentText;
+
+    if (!isDeleting && charIndex < currentPhrase.length) {
+      charIndex++;
+      setTimeout(type, 100);
+    } else if (isDeleting && charIndex > 0) {
+      charIndex--;
+      setTimeout(type, 50);
+    } else {
+      isDeleting = !isDeleting;
+      if (!isDeleting) {
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+      setTimeout(type, 1000);
+    }
+  }
+
+  window.addEventListener("load", () => setTimeout(type, 1000));
+</script>

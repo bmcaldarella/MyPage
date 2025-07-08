@@ -1,0 +1,87 @@
+
+<!-- SIDEBAR (desktop) -->
+<aside class="sidebar d-none d-md-flex flex-column justify-content-between bg-black text-white vh-100 p-3 position-fixed">
+  <div class="text-center">
+    <img src="/src/assets/brandon.webp" alt="Brandon" class="rounded-circle mb-2" width="50" />
+    <h5 class="fw-bold">Brandon</h5>
+  </div>
+
+  <ul class="nav flex-column mt-0 gap-2">
+    <li><a href="#home" class="nav-link text-white"><i class="bi bi-house-door"></i> Home</a></li>
+    <li><a href="#about" class="nav-link text-white"><i class="bi bi-person"></i> About</a></li>
+    <li><a href="#cv" class="nav-link text-white"><i class="bi bi-file-earmark-text"></i> Curriculum Vitae</a></li>
+    <li><a href="#portfolio" class="nav-link text-white"><i class="bi bi-grid"></i> Portfolio</a></li>
+    <li><a href="#contact" class="nav-link text-white"><i class="bi bi-envelope"></i> Contact</a></li>
+  </ul>
+
+  <div class="social-icons d-flex justify-content-center gap-3 mt-3">
+    <a href="https://github.com/bmcaldarella" class="text-white"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/bmcaldarella/" class="text-white"><i class="bi bi-linkedin"></i></a>
+  </div>
+</aside>
+
+<div class="offcanvas offcanvas-start bg-black text-white" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+  <div class="offcanvas-header border-bottom border-secondary">
+    <h5 class="offcanvas-title fw-bold" id="mobileMenuLabel">Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+
+  <div class="offcanvas-body d-flex flex-column justify-content-between px-3">
+    <div class="text-center">
+      <img src="/src/assets/brandon.webp" alt="Brandon" class="rounded-circle mb-2" width="50" />
+      <h5 class="fw-bold">Brandon</h5>
+    </div>
+
+    <ul class="nav flex-column mt-4 gap-2">
+      <li><a href="#home" class="nav-link text-white"><i class="bi bi-house-door"></i> Home</a></li>
+      <li><a href="#about" class="nav-link text-white"><i class="bi bi-person"></i> About</a></li>
+      <li><a href="#cv" class="nav-link text-white"><i class="bi bi-file-earmark-text"></i> Curriculum Vitae</a></li>
+      <li><a href="#portfolio" class="nav-link text-white"><i class="bi bi-grid"></i> Portfolio</a></li>
+      <li><a href="#contact" class="nav-link text-white"><i class="bi bi-envelope"></i> Contact</a></li>
+    </ul>
+
+    <div class="social-icons d-flex justify-content-center gap-3 mt-4">
+      <a href="#" class="text-white"><i class="bi bi-github"></i></a>
+      <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ESTILOS COMPARTIDOS -->
+<style>
+  .nav-link:hover {
+    background-color: #5d57d55e;
+    border-radius: 6%;
+    
+   
+  }
+
+  .social-icons a {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    transform: scale(1.5);
+  }
+
+  .sidebar img,
+  .offcanvas .text-center img {
+    margin-top: 1.5rem;
+  }
+
+  .sidebar h5,
+  .offcanvas .text-center h5 {
+    margin-bottom: 1rem;
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('#mobileMenu .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('mobileMenu'));
+      if (offcanvas) offcanvas.hide();
+    });
+  });
+</script>

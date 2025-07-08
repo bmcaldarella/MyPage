@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Todos tus estilos generales */
+.nav-link:hover {
+  background-color: #494444;
+  border-radius: 4%;
+  color: #00b4ff;
+}
+
+.tech-icon {
+  width: 60px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+}
+
+.section-slide-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-slide-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}

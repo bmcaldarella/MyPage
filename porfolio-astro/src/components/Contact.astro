@@ -1,0 +1,93 @@
+<div class="container mt-5 px-3 py-4">
+    <h2 class="gradient-title text-center">
+        Don't be shy, <br /><span class="blue">Let’s talk</span>
+    </h2>
+
+    <p class="text-center"> Questions, ideas, or just a friendly hello? I’m all ears.</p>
+    <div id="contact" class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+<form 
+    action="/portafolio-php/porfolio-astro/public/php/send-mail.php" 
+    method="POST" 
+    class="contact-form d-flex flex-column gap-3"
+>                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    class="form-control"
+                    required
+                />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    class="form-control"
+                    required
+                />
+                <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    class="form-control"
+                    rows="5"
+                    required></textarea>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    h2 {
+        margin-top: 3rem;
+    }
+
+    .gradient-title {
+        font-weight: 800;
+        font-size: 3.5rem;
+        background: linear-gradient(
+            135deg,
+            #7b2ff7 10%,
+            #a13cf0 50%,
+            #f107a3 90%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-title .blue {
+        display: block;
+        background: linear-gradient(
+            135deg,
+            #00c6ff 30%,
+            #0288f0 20%,
+            #0072ff 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .container {
+        border: 2px solid #382b736a;
+        border-radius: 40px;
+        margin-bottom: 1rem;
+
+    }
+
+    form {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Responsive title size */
+    @media (max-width: 768px) {
+        .gradient-title {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .gradient-title {
+            font-size: 2rem;
+        }
+    }
+</style>
